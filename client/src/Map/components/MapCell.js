@@ -69,6 +69,7 @@ const MapComponent = compose(
           <Marker
             key={index}
             position={{ lat: key.lat, lng: key.lng }}
+            onClick={() => alert(`You click ${key.name}!`)}
             onMouseOver={() => {
               handler('show', key.name)
             }}

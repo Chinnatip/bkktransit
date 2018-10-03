@@ -1,19 +1,58 @@
 {
-  "name": "transit",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "react": "^16.5.2",
-    "react-async-script-loader": "^0.3.0",
-    "react-dom": "^16.5.2",
-    "react-google-maps": "^9.4.5",
-    "react-scripts": "1.1.5",
-    "styled-components": "^3.4.9"
-  },
+  "name": "kohlife",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "build": "npm run build --prefix client",
+    "start": "nodemon server.js",
+    "client": "npm run start --prefix client",
+    "storybook": "npm run storybook --prefix client",
+    "dev": "concurrently \"npm run start\" \"npm run client\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://cryptokeepto@bitbucket.org/cryptokeepto/kohlife-api.git"
+  },
+  "author": "cryptokeepto",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/cryptokeepto/kohlife-api#readme",
+  "dependencies": {
+    "@sendgrid/mail": "^6.3.1",
+    "body-parser": "^1.18.3",
+    "classnames": "^2.2.6",
+    "compression": "^1.7.2",
+    "concurrently": "^3.6.0",
+    "connect-redis": "^3.3.3",
+    "cookie-session": "^2.0.0-beta.3",
+    "express": "^4.16.3",
+    "express-session": "^1.15.6",
+    "knex": "^0.14.6",
+    "knex-postgis": "^0.6.0",
+    "mongoose": "^5.2.3",
+    "jsonwebtoken": "^8.3.0",
+    "morgan": "^1.9.0",
+    "nodemon": "^1.18.1",
+    "omise": "^0.5.4",
+    "passport": "^0.4.0",
+    "passport-google-oauth20": "^1.0.0",
+    "pdfkit": "^0.8.3",
+    "pg": "^7.4.3",
+    "pg-format": "^1.0.4",
+    "promise": "^7.3.1",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
+    "react-redux": "^5.0.7",
+    "reactstrap": "^6.3.0",
+    "storybook": "^1.0.0",
+    "styled-components": "^3.3.3"
+  },
+  "devDependencies": {
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-prettier": "^2.6.2",
+    "prettier": "^1.13.7",
+    "@storybook/react": "^3.4.8",
+    "@storybook/addon-actions": "^3.4.8",
+    "@storybook/addon-links": "^3.4.8"
   }
 }

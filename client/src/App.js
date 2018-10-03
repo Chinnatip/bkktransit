@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
-import logo from './logo.svg'
-import './App.css'
 import styled from 'styled-components'
-//
 import Map from './Map/components/Map'
-import { BTSLocationSet } from './Map/components/assets/BTS_location'
+// import { BTSLocationSet } from './Map/components/assets/BTS_location'
+import logo from './logo.svg'
+import axios from 'axios'
+import './App.css'
 
 const Popup = styled.div`
   position: fixed;
@@ -28,10 +28,22 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
+      location: {},
       popup: false,
       poptext: ''
     }
     this.pushHandler = this.pushHandler.bind(this)
+  }
+  componentDidMount() {
+    axios
+      .get('http://localhost:5000/api/1.0.0/static/btsLocation')
+      .then(res => {
+        this.setState({
+          ...this.state,
+          ...{ location: res.data.message }
+        })
+        // console.log(res.data.message)
+      })
   }
   pushHandler(type, val) {
     if (type == 'show') {
@@ -54,7 +66,7 @@ class App extends Component {
           <h1 className="App-title">BKK TRANSIT</h1>
         </header>
         <Map
-          location={BTSLocationSet}
+          location={this.state.location}
           zoom="11"
           height="780"
           markerable
