@@ -12,6 +12,7 @@ import {
 
 const API_KEY = 'AIzaSyABQ_VlKDqdqHUcOKKRIkMvNljwWDUIzMc'
 const LIBRARY = 'geometry,drawing,places'
+
 const collecCenter = locs => {
   let latReduce =
     locs.map(loc => loc.lat).reduce((lat, val) => lat + val) / locs.length

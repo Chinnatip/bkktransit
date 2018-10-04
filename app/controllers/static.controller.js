@@ -33,6 +33,7 @@ exports.btsLocation = function(req, res) {
   res.status(200).json({ status: true, message: locationSet })
 }
 
+// fake TRAIN data
 const BRT_COLOR = { brt: '#6ACD39' }
 const BRT = {
   brt: [
